@@ -51,6 +51,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -82,7 +83,12 @@ public class MainActivity extends AppCompatActivity {
     private int mLastRepeaterPort;
     private String mLastRepeaterId;
     private Defaults mDefaults;
-
+    private boolean mLockdownMode;
+    private TextView mSettingsText;
+    private TableLayout mSettingsTable;
+    private TextView mPermissionsText;
+    private TableLayout mPermissionsTable;
+    private TextView mSpecialKeyReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +97,22 @@ public class MainActivity extends AppCompatActivity {
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         mDefaults = new Defaults(this);
+
+        mLockdownMode = mDefaults.getLockdownMode();
+
+        if (mLockdownMode) {
+            mSettingsText = findViewById(R.id.settings_text);
+            mSettingsTable = findViewById(R.id.settings_table);
+            mPermissionsText = findViewById(R.id.permissions_text);
+            mPermissionsTable = findViewById(R.id.permissions_table);
+            mSpecialKeyReference = findViewById(R.id.special_key_reference);
+
+            mSettingsText.setVisibility(View.GONE);
+            mSettingsTable.setVisibility(View.GONE);
+            mPermissionsText.setVisibility(View.GONE);
+            mPermissionsTable.setVisibility(View.GONE);
+            mSpecialKeyReference.setVisibility(View.GONE);
+        }
 
         mButtonToggle = findViewById(R.id.toggle);
         mButtonToggle.setOnClickListener(view -> {
@@ -488,7 +510,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TextView about = findViewById(R.id.about);
-        about.setText(getString(R.string.main_activity_about, BuildConfig.VERSION_NAME));
+        if (mLockdownMode) {
+            about.setVisibility(View.GONE);
+        }
+        else {
+            about.setText(getString(R.string.main_activity_about, BuildConfig.VERSION_NAME));
+        }
 
         mMainServiceBroadcastReceiver = new BroadcastReceiver() {
             @Override
@@ -711,8 +738,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // show outbound connection interface
-        findViewById(R.id.outbound_text).setVisibility(View.VISIBLE);
-        findViewById(R.id.outbound_buttons).setVisibility(View.VISIBLE);
+        if (!mLockdownMode) {
+            findViewById(R.id.outbound_text).setVisibility(View.VISIBLE);
+            findViewById(R.id.outbound_buttons).setVisibility(View.VISIBLE);
+        }
 
         // indicate that changing these settings does not have an effect when the server is running
         findViewById(R.id.settings_port).setEnabled(false);

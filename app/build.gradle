@@ -8,7 +8,7 @@ android {
     compileSdkVersion 34
 
     defaultConfig {
-        applicationId "net.christianbeier.droidvnc_ng"
+        applicationId "com.MincoGroup.droidvnc_lockdown"
         minSdkVersion 24
         targetSdkVersion 33
         versionCode 27

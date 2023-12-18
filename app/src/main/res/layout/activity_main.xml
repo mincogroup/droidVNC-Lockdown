@@ -14,12 +14,14 @@
         android:padding="10dip">
 
         <TextView
+            android:id="@+id/settings_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_activity_settings"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TableLayout
+            android:id="@+id/settings_table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
@@ -44,13 +46,13 @@
                     android:text="@string/main_activity_colon" />
 
                 <EditText
+                    android:id="@+id/settings_port"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
-                    android:padding="10dp"
                     android:layout_weight="1"
                     android:inputType="number"
-                    android:id="@+id/settings_port"/>
+                    android:padding="10dp" />
             </TableRow>
 
             <TableRow
@@ -72,13 +74,13 @@
                     android:text="@string/main_activity_colon" />
 
                 <EditText
+                    android:id="@+id/settings_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
-                    android:padding="10dp"
                     android:layout_weight="1"
                     android:inputType="textPassword"
-                    android:id="@+id/settings_password"/>
+                    android:padding="10dp" />
 
             </TableRow>
 
@@ -101,13 +103,13 @@
                     android:text="@string/main_activity_colon" />
 
                 <EditText
+                    android:id="@+id/settings_access_key"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
-                    android:padding="10dp"
                     android:layout_weight="1"
                     android:inputType="textPassword"
-                    android:id="@+id/settings_access_key"/>
+                    android:padding="10dp" />
 
             </TableRow>
 
@@ -159,20 +161,20 @@
                     android:text="@string/main_activity_colon" />
 
                 <EditText
+                    android:id="@+id/settings_start_on_boot_delay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
-                    android:padding="10dp"
                     android:layout_weight="1"
                     android:inputType="number"
-                    android:id="@+id/settings_start_on_boot_delay"/>
+                    android:padding="10dp" />
 
             </TableRow>
 
             <TableRow
+                android:id="@+id/settings_row_file_transfer"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/settings_row_file_transfer">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -223,8 +225,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:stepSize="5"
                     android:value="100"
                     android:valueFrom="10"
@@ -294,12 +296,14 @@
 
 
         <TextView
+            android:id="@+id/permissions_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_activity_permissions_dashboard"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TableLayout
+            android:id="@+id/permissions_table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
@@ -324,13 +328,13 @@
                     android:text="@string/main_activity_colon" />
 
                 <TextView
+                    android:id="@+id/permission_status_screen_capturing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:padding="10dp"
                     android:text="@string/main_activity_unknown"
-                    android:textAllCaps="true"
-                    android:id="@+id/permission_status_screen_capturing"/>
+                    android:textAllCaps="true" />
             </TableRow>
 
             <TableRow
@@ -352,20 +356,20 @@
                     android:text="@string/main_activity_colon" />
 
                 <TextView
+                    android:id="@+id/permission_status_input"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:padding="10dp"
                     android:text="@string/main_activity_unknown"
-                    android:textAllCaps="true"
-                    android:id="@+id/permission_status_input"/>
+                    android:textAllCaps="true" />
 
             </TableRow>
 
             <TableRow
+                android:id="@+id/permission_row_file_access"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/permission_row_file_access">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -382,20 +386,20 @@
                     android:text="@string/main_activity_colon" />
 
                 <TextView
+                    android:id="@+id/permission_status_file_access"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:padding="10dp"
                     android:text="@string/main_activity_unknown"
-                    android:textAllCaps="true"
-                    android:id="@+id/permission_status_file_access"/>
+                    android:textAllCaps="true" />
 
             </TableRow>
 
             <TableRow
+                android:id="@+id/permission_row_notification"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/permission_row_notification">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -412,13 +416,13 @@
                     android:text="@string/main_activity_colon" />
 
                 <TextView
+                    android:id="@+id/permission_status_notification"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:padding="10dp"
                     android:text="@string/main_activity_unknown"
-                    android:textAllCaps="true"
-                    android:id="@+id/permission_status_notification"/>
+                    android:textAllCaps="true" />
 
             </TableRow>
 

@@ -83,6 +83,9 @@ class Defaults {
     var startOnBootDelay = 0
         private set
 
+    @EncodeDefault
+    var lockdownMode = false
+        private set
     /*
        NB if adding fields here, don't forget to add their copying in the constructor as well!
      */
@@ -124,6 +127,7 @@ class Defaults {
                 this.accessKey = readDefault.accessKey
             this.startOnBoot = readDefault.startOnBoot
             this.startOnBootDelay = readDefault.startOnBootDelay
+            this.lockdownMode = readDefault.lockdownMode
             // add here!
         } catch (e: Exception) {
             Log.w(TAG, "${e.message}")
